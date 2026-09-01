@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO: Metadados Estruturados -->
+  <title>Opylendas — O Folclore Brasileiro Reconectado à Cultura Pop</title>
+  <meta name="description" content="Explore o universo mítico das lendas brasileiras em uma experiência pop e interativa para jovens de 18 a 24 anos. Conheça nossos personagens e produtos!">
+  <meta property="og:title" content="Opylendas — O Folclore Brasileiro Reconectado">
+  <meta property="og:description" content="Reconecte-se com o folclore nacional através de um ecossistema jovem, moderno e divertido.">
+  <meta property="og:image" content="https://opylendas.com.br/assets/og-hero.jpg">
+
+  <!-- Schema.org Product JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Chaveiro Emborrachado Naiá - Opylendas",
+    "image": [ "https://opylendas.com.br/assets/produtos/chaveiro-naia.jpg" ],
+    "description": "Chaveiro exclusivo emborrachado da personagem Naiá, a Estrela das Águas.",
+    "sku": "OPY-CHV-NAIA",
+    "brand": {
+      "@type": "Brand",
+      "name": "Opylendas"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://opylendas.com.br/loja/chaveiro-naia",
+      "priceCurrency": "BRL",
+      "price": "24.90",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- BANNER LGPD (TOAST / NOTIFICATION) -->
+  <div id="cookie-banner" role="region" aria-label="Consentimento de Privacidade" class="cookie-toast">
+    <p>Respeitamos sua privacidade! Utilizamos cookies para personalizar sua experiência no universo Opylendas conforme nossa <a href="/privacidade">Política de Privacidade</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-accept" onclick="closeCookieBanner()">Aceitar</button>
+      <button class="btn-cookie btn-reject" onclick="closeCookieBanner()">Recusar</button>
+      <button class="btn-cookie btn-custom" onclick="closeCookieBanner()">Personalizar</button>
+    </div>
+  </div>
+
+  <!-- NAVEGAÇÃO PRINCIPAL -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="/" class="brand" aria-label="Opylendas - Página Inicial">Opylendas</a>
+      
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu de navegação">
+        ☰
+      </button>
+
+      <nav id="nav-menu" class="nav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link active" aria-current="page">Início</a></li>
+          <li><a href="/santuario" class="nav-link">Santuário</a></li>
+          <li><a href="/opydiario" class="nav-link">OpyDiário</a></li>
+          <li><a href="/loja" class="nav-link">Loja</a></li>
+          <li><a href="/sobre" class="nav-link highlight">🪷 Sobre nós</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- TRILHA DE MIGALHAS DE PÃO -->
+    <nav aria-label="Trilha de navegação (Breadcrumb)" class="breadcrumb-nav container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Início</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nossa Marca</li>
+      </ol>
+    </nav>
+
+    <!-- CARROSSEL HERO -->
+    <section class="hero-carousel container" aria-label="Destaques Opylendas">
+      <div class="hero-slide active">
+        <div class="hero-text">
+          <h1 class="display-title">O Folclore Vivo no Seu Dia a Dia!</h1>
+          <p class="hero-description">Reconecte-se com as lendas nacionais em uma jornada pop, interativa e cheia de atitude.</p>
+          <a href="/personagens" class="btn-cta">Desbravar Personagens</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE BOAS-VINDAS -->
+    <section class="welcome container">
+      <h2 class="section-title">Bem-vindo ao Universo Opylendas</h2>
+      <p class="section-lead">
+        Um espaço onde mitos brasileiros ganham novos visuais, vozes e narrativas envolventes. Feito sob medida para a geração que valoriza nossa cultura.
+      </p>
+    </section>
+
+    <!-- GRID PRINCIPAL (RECURSOS / CARDS) -->
+    <section class="features-grid container" aria-label="Recursos Principais">
+      
+      <!-- Card 1 (Verde Escuro) -->
+      <article class="card card-dark-green">
+        <span class="card-badge">Novo</span>
+        <h3>Conheça os Personagens</h3>
+        <p>De Jaciel a Mapinguari: descubra a releitura dos heróis e criaturas da nossa terra.</p>
+        <a href="/personagens" class="card-btn" aria-label="Ver fichas completas dos personagens">Ver Fichas</a>
+      </article>
+
+      <!-- Card 2 (Amarelo Ocre) -->
+      <article class="card card-yellow">
+        <span class="card-badge">25% OFF</span>
+        <h3>Produtos da Loja</h3>
+        <p>Garrafas, camisetas e chaveiros exclusivos da Naiá e da turma do OpyDiário.</p>
+
+        <!-- Feedback de Ação Acessível -->
+        <div id="alert-cart" role="alert" aria-live="polite" class="alert-hidden">
+          Item adicionado ao carrinho com sucesso!
+        </div>
+
+        <button onclick="addCartDemo()" class="card-btn" aria-label="Adicionar Coleção Naiá ao carrinho">Garantir Coleção</button>
+      </article>
+
+      <!-- Card 3 (Terracota) -->
+      <article class="card card-terracotta">
+        <span class="card-badge">Arquivos Secretos</span>
+        <h3>Curiosidades & Lendas</h3>
+        <p>Explore as origens da Lenda da Vitória-Régia e mitos regionais escondidos.</p>
+        <a href="/curiosidades" class="card-btn" aria-label="Ler curiosidades e mitos brasileiros">Explorar Mitos</a>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL DE PREVENÇÃO DE ERROS -->
+  <dialog id="confirmation-modal" class="modal-dialog">
+    <form method="dialog">
+      <h3>Remover Item do Carrinho?</h3>
+      <p>Você tem certeza que deseja remover este produto exclusivo da sua lista?</p>
+      <div class="modal-actions">
+        <button value="cancel" class="btn-modal btn-cancel">Cancelar</button>
+        <button value="confirm" class="btn-modal btn-danger">Confirmar Remoção</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <p class="footer-logo">Opylendas</p>
+        <p class="copyright">© 2026 Opylendas. Todos os direitos reservados. Conectando o Brasil através do Folclore.</p>
+      </div>
+      
+      <nav class="footer-links" aria-label="Links Institucionais">
+        <a href="/">Início</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/contato">Contato</a>
+        <a href="/privacidade">Privacidade & Termos</a>
+        <!-- Easter Egg Acessível -->
+        <a href="/segredo-do-saci" class="easter-egg-link" aria-label="Acessar conteúdo secreto do Saci">??? (mistério)</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Demonstração de Feedback Dinâmico Acessível
+    function addCartDemo() {
+      const alertBox = document.getElementById('alert-cart');
+      alertBox.className = 'alert-visible';
+      setTimeout(() => {
+        alertBox.className = 'alert-hidden';
+      }, 4000);
+    }
+
+    function closeCookieBanner() {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+//CSS
+/* DESIGN TOKENS (Base de Cores Opylendas) */
+:root {
+  --opy-verde-escuro: #1b4332;
+  --opy-amarelo-ocre: #d97706;
+  --opy-terracota: #b45309;
+  --opy-creme: #fefae0;
+  --opy-texto-escuro: #1c1917;
+  --opy-branco: #ffffff;
+  --opy-focus-ring: #0284c7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--opy-creme);
+  color: var(--opy-texto-escuro);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ACESSIBILIDADE DE FOCO */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--opy-focus-ring);
+  outline-offset: 3px;
+}
+
+/* COOKIE BANNER (LGPD / TOAST) */
+.cookie-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 600px;
+  background-color: var(--opy-texto-escuro);
+  color: var(--opy-creme);
+  padding: 16px 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-cookie {
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-accept { background: var(--opy-amarelo-ocre); color: white; }
+.btn-reject { background: #44403c; color: white; }
+.btn-custom { background: transparent; color: var(--opy-creme); border: 1px solid var(--opy-creme); }
+
+/* HEADER & NAVBAR */
+.header {
+  background-color: var(--opy-verde-escuro);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: var(--opy-creme);
+  font-size: 24px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--opy-creme);
+  font-size: 28px;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--opy-creme);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: var(--opy-amarelo-ocre);
+}
+
+/* BREADCRUMB */
+.breadcrumb-nav {
+  padding-top: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.breadcrumb-item a { color: var(--opy-terracota); text-decoration: none; }
+.breadcrumb-item.active { color: #78716c; }
+
+/* HERO CAROUSEL */
+.hero-carousel {
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--opy-verde-escuro), #2d6a4f);
+  color: var(--opy-creme);
+  border-radius: 16px;
+  padding: 60px 40px;
+}
+
+.display-title {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 18px;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--opy-amarelo-ocre);
+  color: var(--opy-branco);
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  min-height: 44px;
+}
+
+/* SEÇÃO BOAS-VINDAS */
+.welcome {
+  text-align: center;
+  padding: 48px 20px 24px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: var(--opy-verde-escuro);
+  margin-bottom: 8px;
+}
+
+.section-lead {
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* CARDS GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 24px 20px 60px;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--opy-branco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-dark-green { background-color: var(--opy-verde-escuro); }
+.card-yellow { background-color: var(--opy-amarelo-ocre); }
+.card-terracotta { background-color: var(--opy-terracota); }
+
+.card h3 { font-size: 22px; margin-bottom: 12px; }
+.card p { font-size: 15px; margin-bottom: 24px; opacity: 0.95; }
+
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--opy-creme);
+  color: var(--opy-texto-escuro);
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+/* ALERTA ACESSÍVEL */
+.alert-hidden { display: none; }
+.alert-visible {
+  display: block;
+  background-color: #15803d;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* MODAL DE CONFIRMAÇÃO */
+.modal-dialog {
+  margin: auto;
+  padding: 24px;
+  border-radius: 12px;
+  border: none;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-modal {
+  flex: 1;
+  min-height: 44px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-cancel { background: #e7e5e4; color: var(--opy-texto-escuro); }
+.btn-danger { background: #dc2626; color: white; }
+
+/* RODAPÉ */
+.footer {
+  background-color: var(--opy-verde-escuro);
+  color: var(--opy-creme);
+  padding: 40px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo { font-size: 20px; font-weight: 800; }
+.copyright { font-size: 13px; opacity: 0.8; }
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--opy-creme);
+  text-decoration: none;
+  font-size: 14px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.easter-egg-link {
+  color: var(--opy-amarelo-ocre) !important;
+  font-style: italic;
+}
+
+/* MOBILE RESPONSIVITY (Breakpoints Bootstrap-style) */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav { display: none; } /* Em implementação real, alternado via JS Offcanvas */
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .display-title { font-size: 28px; }
+  .hero-carousel { padding: 32px 20px; }
+  
+  .cookie-toast {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
