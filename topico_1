@@ -1,0 +1,141 @@
+<article class="profile-card" aria-label="Perfil da personagem Naiá">
+  <div class="profile-avatar-wrapper">
+    <img 
+      src="https://via.placeholder.com/120" 
+      alt="Ilustração de Naiá, jovem com flor de vitória-régia no cabelo refletida pela luz da lua" 
+      class="profile-avatar"
+      width="120"
+      height="120"
+      loading="lazy"
+    >
+    <span class="badge-tag">Lenda Guardiã</span>
+  </div>
+
+  <div class="profile-content">
+    <header class="profile-header">
+      <h1 class="profile-title">Naiá</h1>
+      <p class="profile-subtitle">A Estrela das Águas</p>
+    </header>
+
+    <p class="profile-bio">
+      Conectada à lua e às águas calmas, Naiá transforma o misticismo do folclore em coragem pura para defender o ecossistema nacional.
+    </p>
+
+    <div class="profile-actions">
+      <button class="btn-primary" aria-label="Conhecer a história completa de Naiá">Ver Histórias</button>
+      <button class="btn-secondary" aria-label="Adicionar chaveiro da Naiá ao carrinho">Chaveiro Naiá</button>
+    </div>
+  </div>
+</article>
+//CSS
+:root {
+  --opy-verde-escuro: #1b4332;
+  --opy-amarelo-ocre: #d97706;
+  --opy-terracota: #b45309;
+  --opy-creme: #fefae0;
+  --opy-texto-escuro: #1c1917;
+  --opy-texto-mutado: #44403c;
+  --opy-radius: 12px;
+}
+
+/* 1. ALINHAMENTO E ESTRUTURA (Grid & Flex) */
+.profile-card {
+  max-width: 380px;
+  background-color: var(--opy-creme);
+  border: 2px solid var(--opy-verde-escuro);
+  border-radius: var(--opy-radius);
+  padding: 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 2. PROXIMIDADE (Espaçamentos agrupados por contexto) */
+.profile-avatar-wrapper {
+  position: relative;
+  margin-bottom: 16px; /* Grupo da Imagem */
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  border: 4px solid var(--opy-amarelo-ocre);
+  object-fit: cover;
+}
+
+.badge-tag {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--opy-terracota);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.profile-header {
+  margin-bottom: 12px; /* Grupo de Títulos */
+}
+
+.profile-bio {
+  margin-bottom: 24px; /* Grupo da Bio */
+  color: var(--opy-texto-mutado);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%; /* Grupo de Botões */
+}
+
+/* 3. CONTRASTE (Hierarquia clara de texto e cores) */
+.profile-title {
+  color: var(--opy-verde-escuro);
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profile-subtitle {
+  color: var(--opy-terracota);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 4px 0 0 0;
+}
+
+/* 4. REPETIÇÃO (Padronização de botões, áreas de toque >= 44px) */
+.btn-primary, .btn-secondary {
+  flex: 1;
+  min-height: 44px; /* Acessibilidade Mobile */
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--opy-verde-escuro);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--opy-amarelo-ocre);
+  color: #ffffff;
+}
+
+.btn-primary:focus-visible, .btn-secondary:focus-visible {
+  outline: 3px solid var(--opy-terracota);
+  outline-offset: 2px;
+}
