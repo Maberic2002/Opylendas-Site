@@ -1,0 +1,152 @@
+ /* Custom Design Tokens & Theme Colors */
+    :root {
+      --opy-verde-escuro: #485F4D;
+      --opy-amarelo-ocre: #E5B54F;
+      --opy-terracota: #C05325;
+      --opy-creme: #FFFCEE;
+      --opy-texto-escuro: #1A1A1A;
+    }
+
+    body {
+      background-color: var(--opy-creme);
+      color: var(--opy-texto-escuro);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    /* Skip Link Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--opy-amarelo-ocre);
+      color: #000;
+      padding: 8px 16px;
+      z-index: 1100;
+      text-decoration: none;
+      font-weight: bold;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Navbar Custom Styles */
+    .navbar-opy {
+      background-color: var(--opy-verde-escuro);
+    }
+    .navbar-opy .navbar-brand,
+    .navbar-opy .nav-link {
+      color: var(--opy-creme) !important;
+      font-weight: 600;
+    }
+    .navbar-opy .nav-link:hover,
+    .navbar-opy .nav-link:focus {
+      color: var(--opy-amarelo-ocre) !important;
+    }
+
+    /* Interactive touch target requirement (min 44x44px) */
+    .touch-target {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Focus visible standard for high accessibility contrast */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--opy-amarelo-ocre) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Hero Carousel styling */
+    .carousel-hero .carousel-item {
+      min-height: 380px;
+      background-color: var(--opy-verde-escuro);
+      color: var(--opy-creme);
+      padding: 3rem 1rem;
+    }
+    .carousel-hero h2 {
+      color: var(--opy-amarelo-ocre);
+    }
+
+    /* Custom Theme Buttons */
+    .btn-opy-primary {
+      background-color: var(--opy-verde-escuro);
+      color: var(--opy-creme);
+      border: 2px solid var(--opy-verde-escuro);
+      font-weight: 700;
+    }
+    .btn-opy-primary:hover, .btn-opy-primary:focus {
+      background-color: #122619;
+      color: var(--opy-amarelo-ocre);
+      border-color: #122619;
+    }
+
+    .btn-opy-secondary {
+      background-color: var(--opy-amarelo-ocre);
+      color: #000;
+      border: 2px solid var(--opy-amarelo-ocre);
+      font-weight: 700;
+    }
+    .btn-opy-secondary:hover, .btn-opy-secondary:focus {
+      background-color: #b37e1d;
+      color: #000;
+      border-color: #b37e1d;
+    }
+
+    .btn-opy-accent {
+      background-color: var(--opy-terracota);
+      color: #fff;
+      border: 2px solid var(--opy-terracota);
+      font-weight: 700;
+    }
+    .btn-opy-accent:hover, .btn-opy-accent:focus {
+      background-color: #9c3f29;
+      color: #fff;
+      border-color: #9c3f29;
+    }
+
+    /* Cards Styling */
+    .card-opy {
+      border: none;
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
+    }
+    .card-opy:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-opy-verde {
+      background-color: var(--opy-verde-escuro);
+      color: var(--opy-creme);
+    }
+    .card-opy-amarelo {
+      background-color: var(--opy-amarelo-ocre);
+      color: #1A1A1A;
+    }
+    .card-opy-terracota {
+      background-color: var(--opy-terracota);
+      color: #FFFFFF;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: var(--opy-verde-escuro);
+      color: var(--opy-creme);
+    }
+    footer a {
+      color: var(--opy-amarelo-ocre);
+      text-decoration: underline;
+    }
+    footer a:hover, footer a:focus {
+      color: #fff;
+    }
+
+    /* Toast Container positioning */
+    .toast-container {
+      z-index: 1090;
+    }
