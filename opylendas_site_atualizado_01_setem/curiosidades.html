@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curiosidades - Opylendas</title>
+  <style>
+    /* Custom Design Tokens & Theme Colors */
+    :root {
+      --opy-verde-escuro: #485F4D;
+      --opy-amarelo-ocre: #E5B54F;
+      --opy-terracota: #C05325;
+      --opy-creme: #FFFCEE;
+      --opy-card-imagem: #DCD6BF;
+      --opy-texto-escuro: #1A1A1A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Trava a rolagem por seções (Scroll Snap) */
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--opy-creme);
+      color: var(--opy-texto-escuro);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--opy-amarelo-ocre);
+      color: #000;
+      padding: 8px 16px;
+      z-index: 1100;
+      text-decoration: none;
+      font-weight: bold;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Fixed Header */
+    .header-opy {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background-color: var(--opy-verde-escuro);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+    }
+
+    .brand-logo {
+      color: var(--opy-creme);
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--opy-creme);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-link:hover, .nav-link:focus {
+      color: var(--opy-amarelo-ocre);
+    }
+
+    /* Contêiner de cada tela do Scroll Snap */
+    .secao-curiosidade {
+      height: 100vh;
+      width: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 90px 20px 20px 20px;
+      position: relative;
+    }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: var(--opy-verde-escuro);
+      margin-bottom: 0.2rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      color: var(--opy-verde-escuro);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Bloco da Curiosidade (Lado Imagem + Lado Texto) */
+    .card-curiosidade {
+      display: flex;
+      width: 100%;
+      max-width: 900px;
+      height: 380px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .box-imagem {
+      flex: 1;
+      background-color: var(--opy-card-imagem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--opy-verde-escuro);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .box-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .box-texto {
+      flex: 1;
+      background-color: var(--opy-verde-escuro);
+      color: var(--opy-creme);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .box-texto h2 {
+      font-size: 1.6rem;
+      font-family: 'Georgia', serif;
+      margin-bottom: 1.2rem;
+      color: var(--opy-creme);
+    }
+
+    .box-texto p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    /* Rodapé fixado na última tela */
+    .footer-opy {
+      width: 100%;
+      background-color: var(--opy-verde-escuro);
+      padding: 1rem 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      color: var(--opy-creme);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .footer-nav a:hover, .footer-nav a:focus {
+      color: var(--opy-amarelo-ocre);
+    }
+
+    /* Touch targets e foco de acessibilidade */
+    .touch-target {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--opy-amarelo-ocre) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .card-curiosidade {
+        flex-direction: column;
+        height: auto;
+        max-height: 70vh;
+      }
+      .box-imagem {
+        min-height: 180px;
+      }
+      .box-texto {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- Header Fixo -->
+  <header class="header-opy">
+    <a href="index.html" class="brand-logo touch-target">OPYLENDAS</a>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link touch-target">Início</a></li>
+        <li><a href="santuario.html" class="nav-link touch-target">Santuário</a></li>
+        <li><a href="opydiario.html" class="nav-link touch-target">OpyDiário</a></li>
+        <li><a href="loja.html" class="nav-link touch-target">Loja</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- PÁGINA 5: Mundo Opylendas -->
+    <section class="secao-curiosidade">
+      <div class="breadcrumb">Início &gt; Curiosidades</div>
+      <h1 class="page-title">Curiosidades</h1>
+
+      <article class="card-curiosidade">
+        <div class="box-imagem">
+          <!-- <img src="assets/mundo_opylendas.png" alt="Mundo Opylendas"> -->
+          Imagem de referência
+        </div>
+        <div class="box-texto">
+          <h2>Mundo Opylendas</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- PÁGINA 6: Os Pequenos Sacis -->
+    <section class="secao-curiosidade">
+      <div class="breadcrumb">Início &gt; Curiosidades</div>
+      <h1 class="page-title">Curiosidades</h1>
+
+      <article class="card-curiosidade">
+        <div class="box-imagem">
+          <!-- <img src="assets/pequenos_sacis.png" alt="Os Pequenos Sacis"> -->
+          Imagem de referência
+        </div>
+        <div class="box-texto">
+          <h2>Os Pequenos Sacis</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- PÁGINA 7: A Lenda da Vitória-Régia -->
+    <section class="secao-curiosidade">
+      <div class="breadcrumb">Início &gt; Curiosidades</div>
+      <h1 class="page-title">Curiosidades</h1>
+
+      <article class="card-curiosidade">
+        <div class="box-imagem">
+          <!-- <img src="assets/vitoria_regia.png" alt="A Lenda da Vitória-Régia"> -->
+          Imagem de referência
+        </div>
+        <div class="box-texto">
+          <h2>A Lenda da Vitória-Régia</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- PÁGINA 8: Curiosidade extra + Footer -->
+    <section class="secao-curiosidade">
+      <div class="breadcrumb">Início &gt; Curiosidades</div>
+      <h1 class="page-title">Curiosidades</h1>
+
+      <article class="card-curiosidade">
+        <div class="box-imagem">
+          Imagem de referência
+        </div>
+        <div class="box-texto">
+          <h2>Outras Lendas</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </article>
+
+      <!-- Rodapé anexado ao final da última tela scrolada -->
+      <footer class="footer-opy">
+        <ul class="footer-nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="loja.html">Produtos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="trocas.html">Trocas e Devoluções</a></li>
+          <li><a href="medidas.html">Guia de Medidas</a></li>
+        </ul>
+      </footer>
+    </section>
+
+  </main>
+
+</body>
+</html>

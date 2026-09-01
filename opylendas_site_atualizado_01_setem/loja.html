@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confira os Produtos da Loja - Opylendas</title>
+  
+  <style>
+    /* Custom Design Tokens & Theme Colors */
+    :root {
+      --opy-verde-escuro: #485F4D;
+      --opy-amarelo-ocre: #E5B54F;
+      --opy-terracota: #C05325;
+      --opy-creme: #FFFCEE;
+      --opy-texto-escuro: #1A1A1A;
+      --opy-card-fundo: #DCD6BF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--opy-creme);
+      color: var(--opy-texto-escuro);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--opy-amarelo-ocre);
+      color: #000;
+      padding: 8px 16px;
+      z-index: 1100;
+      text-decoration: none;
+      font-weight: bold;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 3px solid var(--opy-amarelo-ocre) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Header & Navigation */
+    .navbar-opy {
+      background-color: var(--opy-verde-escuro);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: var(--opy-creme);
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--opy-creme);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link:focus, .nav-link.active {
+      color: var(--opy-amarelo-ocre);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: var(--opy-verde-escuro);
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      color: var(--opy-verde-escuro);
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
+    /* Grid Layouts */
+    .grid-destaques {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .grid-produtos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Product Card Component */
+    .card-produto {
+      background-color: var(--opy-card-fundo);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-produto:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .media-container {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background-color: #D1C7A9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--opy-verde-escuro);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .media-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge-off {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--opy-terracota);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 12px;
+      z-index: 2;
+    }
+
+    .card-footer-opy {
+      background-color: var(--opy-verde-escuro);
+      padding: 1rem;
+      color: var(--opy-creme);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .badge-price {
+      background-color: var(--opy-amarelo-ocre);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 2px 10px;
+      border-radius: 10px;
+    }
+
+    .price-original {
+      font-size: 0.8rem;
+      text-decoration: line-through;
+      opacity: 0.8;
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .grid-produtos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .grid-destaques, .grid-produtos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+<!-- CABEÇALHO COM NAVEGAÇÃO FUNCIONAL -->
+<header class="navbar-opy">
+  <!-- Logo clicável que redireciona para a página inicial -->
+  <a href="index.html" class="navbar-brand touch-target" title="Ir para a página inicial">
+    OPYLENDAS
+  </a>
+
+  <nav aria-label="Navegação principal">
+    <ul class="nav-links">
+      <li>
+        <a href="index.html" class="nav-link touch-target">Início</a>
+      </li>
+      <li>
+        <a href="santuario.html" class="nav-link touch-target">Santuário</a>
+      </li>
+      <li>
+        <a href="opydiario.html" class="nav-link touch-target">OpyDiário</a>
+      </li>
+      <li>
+        <!-- Página atual marcada com aria-current e estilo ativo -->
+        <a href="loja.html" class="nav-link active touch-target" aria-current="page">Loja</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <main id="main-content" class="container">
+    <div class="breadcrumb">Início &gt; Confira os produtos da loja</div>
+    <h1 class="page-title">Confira os produtos da loja</h1>
+
+    <!-- As seções serão populadas automaticamente via script com 28 itens -->
+    <section class="grid-destaques" id="secao-destaques"></section>
+    <section class="grid-produtos" id="secao-produtos"></section>
+  </main>
+
+  <script>
+    // Função para renderizar os cards usando os design tokens oficiais
+    function criarCardProduto(id, eDestaque) {
+      return `
+        <article class="card-produto">
+          <div class="media-container">
+            <span class="badge-off">25% OFF</span>
+            <!-- Para colocar sua imagem utilize: <img src="assets/produto_${id}.png" alt="NOME DO PRODUTO ${id}"> -->
+            [ Espaço Imagem - Produto ${id} ]
+          </div>
+          <div class="card-footer-opy">
+            <h2 class="product-name">NOME DO PRODUTO ${id}</h2>
+            <div class="price-wrapper">
+              <span class="badge-price">R$ 44,99</span>
+              <span class="price-original">R$ 95,99</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    const containerDestaques = document.getElementById('secao-destaques');
+    const containerProdutos = document.getElementById('secao-produtos');
+
+    // Renderiza os 2 primeiros (Primeira tela/Linha de destaques)
+    for (let i = 1; i <= 2; i++) {
+      containerDestaques.innerHTML += criarCardProduto(i, true);
+    }
+
+    // Renderiza os outros 26 (Grid de 3 por tela)
+    for (let i = 3; i <= 28; i++) {
+      containerProdutos.innerHTML += criarCardProduto(i, false);
+    }
+  </script>
+
+</body>
+</html>

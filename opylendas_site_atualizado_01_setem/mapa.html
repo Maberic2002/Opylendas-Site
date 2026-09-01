@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Caminho da Jornada</title>
+  <style>
+    /* Custom Design Tokens & Theme Colors */
+    :root {
+      --opy-verde-escuro: #485F4D;
+      --opy-amarelo-ocre: #E5B54F;
+      --opy-terracota: #C05325;
+      --opy-creme: #FFFCEE;
+      --opy-texto-escuro: #1A1A1A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--opy-creme);
+      color: var(--opy-texto-escuro);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* CONTÊINER PRINCIPAL DO MAPA */
+    .mapa-jornada-wrapper {
+      background-color: var(--opy-verde-escuro);
+      padding: 1.5rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      border-radius: 8px;
+    }
+
+    .mapa-header {
+      text-align: center;
+      color: var(--opy-creme);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .mapa-container {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      background-color: #EBDFA8; /* Fundo estilo pergaminho */
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+    }
+
+    /* IMAGEM DO MAPA DE FUNDO */
+    .mapa-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* ROTA SVG SOBREPOSTA */
+    .rota-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* POLAROIDS E MOLDURAS */
+    .polaroid {
+      position: absolute;
+      background-color: #FFF;
+      padding: 8px 8px 24px 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      border-radius: 2px;
+      z-index: 2;
+      transition: transform 0.2s ease;
+    }
+
+    .polaroid:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      z-index: 5;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .polaroid-top-left {
+      top: 25px;
+      left: 25px;
+      width: 160px;
+      height: 180px;
+      transform: rotate(-4deg);
+    }
+
+    .polaroid-bottom-left {
+      bottom: 30px;
+      left: 30px;
+      width: 170px;
+      height: 190px;
+      transform: rotate(3deg);
+    }
+
+    .polaroid-top-right {
+      top: 25px;
+      right: 25px;
+      width: 180px;
+      height: 160px;
+      transform: rotate(5deg);
+    }
+
+    .polaroid-bottom-right {
+      bottom: 40px;
+      right: 35px;
+      width: 165px;
+      height: 185px;
+      transform: rotate(-3deg);
+    }
+
+    /* RÓTULOS DAS ALDEIAS NO MAPA */
+    .rotulo-aldeia {
+      position: absolute;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--opy-verde-escuro);
+      z-index: 3;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 0px rgba(255, 252, 238, 0.8);
+    }
+
+    .aldeia-xokleng {
+      bottom: 145px;
+      left: 285px;
+    }
+
+    .aldeia-guarani {
+      bottom: 95px;
+      left: 485px;
+    }
+
+    /* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
+    @media (max-width: 768px) {
+      .mapa-container {
+        height: 400px;
+      }
+      .polaroid {
+        width: 110px !important;
+        height: 120px !important;
+      }
+      .rotulo-aldeia {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="mapa-jornada-wrapper">
+    <h2 class="mapa-header">O caminho da jornada</h2>
+    
+    <div class="mapa-container">
+      <!-- Fundo do Mapa (Substitua a URL pela imagem do mapa de fundo) -->
+      <img src="assets/mapa_brasil_textura.png" alt="Mapa do Brasil" class="mapa-bg" onerror="this.style.display='none'">
+
+      <!-- ROTA E PONTOS DESENHADOS VIA SVG -->
+      <svg class="rota-svg" viewBox="0 0 1000 520" preserveAspectRatio="none">
+        <!-- Linha do Caminho Pontilhado -->
+        <path d="M 280,140 
+                 L 340,145 
+                 L 440,160 
+                 L 560,185 
+                 L 650,210 
+                 L 570,230 
+                 L 510,250 
+                 L 460,285 
+                 L 415,325 
+                 L 460,315 
+                 L 500,315 
+                 L 560,325 
+                 L 490,370 
+                 L 460,410 
+                 L 455,480" 
+              fill="none" 
+              stroke="#485F4D" 
+              stroke-width="3" 
+              stroke-dasharray="6,6" />
+
+        <!-- Nós de Origem/Conexão Verdinhos -->
+        <circle cx="280" cy="140" r="5" fill="#485F4D" />
+        <circle cx="650" cy="210" r="5" fill="#485F4D" />
+        <circle cx="415" cy="325" r="5" fill="#485F4D" />
+        <circle cx="560" cy="325" r="5" fill="#485F4D" />
+        <circle cx="455" cy="440" r="5" fill="#485F4D" />
+
+        <!-- Quadrados Amarelos (Etapas Intermediárias) -->
+        <rect x="333" y="138" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="433" y="153" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="553" y="178" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="563" y="223" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="503" y="243" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="453" y="278" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="453" y="308" width="14" height="14" fill="#E5B54F" rx="2" />
+        <rect x="493" y="308" width="14" height="14" fill="#E5B54F" rx="2" />
+
+        <!-- Quadrados Terracota (Destaque das Aldeias) -->
+        <rect x="483" y="363" width="16" height="16" fill="#C05325" rx="2" />
+        <rect x="452" y="402" width="16" height="16" fill="#C05325" rx="2" />
+      </svg>
+
+      <!-- POLAROIDS AO REDOR -->
+      <div class="polaroid polaroid-top-left">
+        <!-- Substitua src pelo caminho da sua imagem -->
+        <img src="assets/foto_cenario_1.jpg" alt="Cenário Florestal" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100%\' height=\'100%\' fill=\'%23DCD6BF\'/><text x=\'50%\' y=\'50%\' font-size=\'12\' text-anchor=\'middle\' fill=\'%23485F4D\'>Foto 1</text></svg>'">
+      </div>
+
+      <div class="polaroid polaroid-bottom-left">
+        <img src="assets/foto_cenario_2.jpg" alt="Criatura Fantástica" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100%\' height=\'100%\' fill=\'%23DCD6BF\'/><text x=\'50%\' y=\'50%\' font-size=\'12\' text-anchor=\'middle\' fill=\'%23485F4D\'>Foto 2</text></svg>'">
+      </div>
+
+      <div class="polaroid polaroid-top-right">
+        <img src="assets/foto_cenario_3.jpg" alt="Aldeia Noturna" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100%\' height=\'100%\' fill=\'%23DCD6BF\'/><text x=\'50%\' y=\'50%\' font-size=\'12\' text-anchor=\'middle\' fill=\'%23485F4D\'>Foto 3</text></svg>'">
+      </div>
+
+      <div class="polaroid polaroid-bottom-right">
+        <img src="assets/foto_cenario_4.jpg" alt="Praia" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><rect width=\'100%\' height=\'100%\' fill=\'%23DCD6BF\'/><text x=\'50%\' y=\'50%\' font-size=\'12\' text-anchor=\'middle\' fill=\'%23485F4D\'>Foto 4</text></svg>'">
+      </div>
+
+      <!-- TEXTOS DAS ALDEIAS -->
+      <div class="rotulo-aldeia aldeia-xokleng">ALDEIA XOKLENG</div>
+      <div class="rotulo-aldeia aldeia-guarani">ALDEIA GUARANI MBYÁ</div>
+    </div>
+  </section>
+
+</body>
+</html>
