@@ -1,1 +1,64 @@
+HTML
+HTML
+<!-- Seção Blog / OpyDiário com Grid System 3/12 e 9/12 -->
+<section class="container py-5" id="blog-grid-system">
+  <div class="row g-4">
+    
+    <!-- Sidebar (3 Colunas) -->
+    <aside class="col-12 col-md-3">
+      <div class="p-3 bg-dark text-white rounded shadow-sm h-100">
+        <h3 class="h5 text-warning fw-bold border-bottom pb-2 mb-3">Categorias</h3>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">📜 Mitos & Lendas</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">🎨 Arte Conceitual</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">🛍️ Novidades da Loja</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">🎮 Bastidores do App</a></li>
+        </ul>
+
+        <h3 class="h5 text-warning fw-bold border-bottom pb-2 mb-3">Busca rápida</h3>
+        <input type="search" class="form-control form-control-sm" placeholder="Buscar no diário...">
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal / Artigos (9 Colunas) -->
+    <main class="col-12 col-md-9">
+      <div class="p-4 bg-white rounded shadow-sm border border-secondary-subtle">
+        <span class="badge bg-warning text-dark mb-2">OpyDiário</span>
+        <h2 class="fw-bold mb-3" style="color: var(--opy-verde-escuro, #485F4D);">
+          A Origem Secréta da Cuca: Muito Além do Jacaré
+        </h2>
+        <p class="text-secondary">
+          Descubra como recontamos a lenda da feiticeira para o universo moderno do Opylendas. Misturando magia ancestral com o humor da cultura pop nacional, trouxemos um novo olhar sobre essa personagem icônica.
+        </p>
+        <a href="diario.html" class="btn btn-opy-primary btn-sm mt-2">Ler Artigo Completo</a>
+      </div>
+    </main>
+
+  </div>
+</section>
+
+CSS Nativo (Equivalente ao CSS Grid puro)
+CSS
+/* Exemplo com CSS Grid puro de 12 colunas caso não queira usar as classes nativas do Bootstrap */
+.blog-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.blog-sidebar {
+  grid-column: span 3;
+}
+
+.blog-content {
+  grid-column: span 9;
+}
+
+@media (max-width: 768px) {
+  .blog-sidebar, .blog-content {
+    grid-column: span 12; /* No mobile ocupa 100% */
+  }
+}
 
