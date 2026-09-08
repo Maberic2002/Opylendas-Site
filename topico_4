@@ -1,1 +1,92 @@
+CSS (Escala de Espaçamento e Estilo dos Cards)
+CSS
+/* Escala de Espaçamento Fixa (Ritmo Visual) */
+:root {
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+}
+
+/* Aplicação da escala nos Cards de Preço */
+.pricing-card {
+  background-color: var(--opy-creme, #FFFCEE);
+  border: 2px solid var(--opy-verde-escuro, #485F4D);
+  border-radius: 12px;
+  margin-bottom: var(--spacing-md); /* Margin externa constante */
+}
+
+/* Variações de Padding usando a escala */
+.pricing-card-compact {
+  padding: var(--spacing-sm); /* Padding interno de 16px */
+}
+
+.pricing-card-standard {
+  padding: var(--spacing-md); /* Padding interno de 24px */
+}
+
+.pricing-card-featured {
+  padding: var(--spacing-lg); /* Padding interno de 32px (Destaque) */
+}
+
+HTML
+HTML
+<!-- Seção de Cards de Preço / Boxes Misteriosas -->
+<section class="container py-5" id="cards-preco">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold display-6" style="color: var(--opy-verde-escuro, #485F4D);">Escolha sua Box Lendária</h2>
+    <p class="text-muted">Escolha o plano que melhor combina com a sua jornada pelo folclore.</p>
+  </div>
+
+  <div class="row g-4 align-items-center">
+    
+    <!-- Card 1: Básico (Padding Pequeno / Medium) -->
+    <div class="col-12 col-md-4">
+      <div class="pricing-card pricing-card-compact shadow-sm text-center">
+        <h3 class="h4 fw-bold">Box Curupira</h3>
+        <p class="text-muted small mb-3">Plano Básico</p>
+        <div class="display-5 fw-bold text-success mb-3">R$ 49<small class="fs-6 text-muted">/mês</small></div>
+        <ul class="list-unstyled mb-4 text-start small">
+          <li class="mb-2">✓ 1 HQ Colecionável</li>
+          <li class="mb-2">✓ 2 Adesivos Exclusivos</li>
+          <li class="mb-2 text-muted">✗ Sem cupom na loja</li>
+        </ul>
+        <button class="btn btn-outline-success w-100">Assinar Curupira</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Destaque (Padding Grande / Large) -->
+    <div class="col-12 col-md-4">
+      <div class="pricing-card pricing-card-featured shadow-lg text-center border-warning" style="background-color: #FFF8E7;">
+        <span class="badge bg-warning text-dark mb-2">Mais Popular</span>
+        <h3 class="h3 fw-bold">Box Cuca Feiticeira</h3>
+        <p class="text-muted small mb-3">Plano Completo</p>
+        <div class="display-4 fw-bold text-warning mb-3" style="color: #D97706 !important;">R$ 89<small class="fs-6 text-muted">/mês</small></div>
+        <ul class="list-unstyled mb-4 text-start">
+          <li class="mb-2">✓ 2 HQs Colecionáveis</li>
+          <li class="mb-2">✓ Camiseta Exclusiva</li>
+          <li class="mb-2">✓ 15% OFF em toda a loja</li>
+        </ul>
+        <button class="btn btn-warning w-100 fw-bold">Garantir Box Cuca</button>
+      </div>
+    </div>
+
+    <!-- Card 3: Padrão (Padding Médio / Standard) -->
+    <div class="col-12 col-md-4">
+      <div class="pricing-card pricing-card-standard shadow-sm text-center">
+        <h3 class="h4 fw-bold">Box Naiá Estrela</h3>
+        <p class="text-muted small mb-3">Plano Intermediário</p>
+        <div class="display-5 fw-bold text-success mb-3">R$ 69<small class="fs-6 text-muted">/mês</small></div>
+        <ul class="list-unstyled mb-4 text-start small">
+          <li class="mb-2">✓ 1 HQ + Pôster A3</li>
+          <li class="mb-2">✓ Chaveiro Especial</li>
+          <li class="mb-2">✓ 10% OFF na loja</li>
+        </ul>
+        <button class="btn btn-outline-success w-100">Assinar Naiá</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
